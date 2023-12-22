@@ -1,8 +1,9 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import CommandOutput from "./CommandOutput";
 import "./Terminal.css";
 import WelcomeCommand from "./Commands/Welcome";
 import Help from "./Commands/Help";
+import AboutCommand from "./Commands/About";
 
 interface Output {
   command: string;
@@ -15,6 +16,8 @@ const Terminal: React.FC = () => {
   const initialOutput: Output[] = [
     { command: "null", type: "output", children: <WelcomeCommand /> },
   ];
+  const outputContainerRef = useRef<HTMLDivElement>(null);
+
   const [outputs, setOutputs] = useState<Output[]>(initialOutput);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,28 +42,25 @@ const Terminal: React.FC = () => {
     }
   };
 
-  const handleCommand = (command: string) => {
-    // Add your command processing logic here
-    // Example commands:
-    // - "help"
-    // - "about"
-    // - "skills"
-    // - "projects"
-    // - "contact"
-    // - "clear"
+  useEffect(() => {
+    // Scroll to the bottom when outputs change
+    if (outputContainerRef.current) {
+      outputContainerRef.current.scrollTop =
+        outputContainerRef.current.scrollHeight;
+    }
+  }, [outputs]);
 
+  const handleCommand = (command: string) => {
     switch (command.toLowerCase()) {
       case "welcome":
         addOutput(command, <WelcomeCommand />);
         break;
       case "help":
+      case "commands":
         addOutput(command, <Help />);
         break;
       case "about":
-        addOutput(
-          command,
-          "Hi! I am Chit Khine. Welcome to my terminal portfolio."
-        );
+        addOutput(command, <AboutCommand />);
         break;
       case "skills":
         addOutput(
@@ -68,11 +68,11 @@ const Terminal: React.FC = () => {
           "Skills: HTML, CSS, JavaScript, React, Node.js, etc."
         );
         break;
-      case "projects":
-        addOutput(command, "Projects: List your projects here.");
-        break;
       case "contact":
         addOutput(command, "Contact me at: your.email@example.com");
+        break;
+      case "deejung":
+        addOutput(command, "useless");
         break;
       case "clear":
         clearOutput();
@@ -99,6 +99,7 @@ const Terminal: React.FC = () => {
     <div
       id="terminal"
       style={{ textAlign: "left", width: "100%", height: "100vh" }}
+      ref={outputContainerRef}
     >
       {outputs.map((output, index) => (
         <CommandOutput
