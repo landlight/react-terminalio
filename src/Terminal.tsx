@@ -2,8 +2,10 @@ import React, { ReactNode, useState } from "react";
 import CommandOutput from "./CommandOutput";
 import "./Terminal.css";
 import WelcomeCommand from "./Commands/Welcome";
+import Help from "./Commands/Help";
 
 interface Output {
+  command: string;
   type: "input" | "output";
   children: React.ReactNode;
 }
@@ -11,7 +13,7 @@ interface Output {
 const Terminal: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const initialOutput: Output[] = [
-    { type: "output", children: <WelcomeCommand /> },
+    { command: "null", type: "output", children: <WelcomeCommand /> },
   ];
   const [outputs, setOutputs] = useState<Output[]>(initialOutput);
 
@@ -29,12 +31,10 @@ const Terminal: React.FC = () => {
     if (input.trim() !== "") {
       const newOutputs: Output[] = [
         ...outputs,
-        { type: "input", children: `> ${input}` },
+        { command: input, type: "input", children: `> ${input}` },
       ];
       setOutputs(newOutputs);
-
       handleCommand(input);
-
       setInput("");
     }
   };
@@ -51,36 +51,43 @@ const Terminal: React.FC = () => {
 
     switch (command.toLowerCase()) {
       case "welcome":
-        addOutput(<WelcomeCommand />);
+        addOutput(command, <WelcomeCommand />);
         break;
       case "help":
-        addOutput(
-          "Available commands: about, skills, projects, contact, clear"
-        );
+        addOutput(command, <Help />);
         break;
       case "about":
-        addOutput("Hi! I am Chit Khine. Welcome to my terminal portfolio.");
+        addOutput(
+          command,
+          "Hi! I am Chit Khine. Welcome to my terminal portfolio."
+        );
         break;
       case "skills":
-        addOutput("Skills: HTML, CSS, JavaScript, React, Node.js, etc.");
+        addOutput(
+          command,
+          "Skills: HTML, CSS, JavaScript, React, Node.js, etc."
+        );
         break;
       case "projects":
-        addOutput("Projects: List your projects here.");
+        addOutput(command, "Projects: List your projects here.");
         break;
       case "contact":
-        addOutput("Contact me at: your.email@example.com");
+        addOutput(command, "Contact me at: your.email@example.com");
         break;
       case "clear":
         clearOutput();
         break;
       default:
-        addOutput(`Command not found: ${command}`);
+        addOutput(command, `Command not found: ${command}`);
         break;
     }
   };
 
-  const addOutput = (children: ReactNode | string) => {
-    const newOutputs: Output[] = [...outputs, { type: "output", children }];
+  const addOutput = (command: string, children: ReactNode | string) => {
+    const newOutputs: Output[] = [
+      ...outputs,
+      { command: command, type: "output", children },
+    ];
     setOutputs(newOutputs);
   };
 
@@ -98,22 +105,23 @@ const Terminal: React.FC = () => {
           key={index}
           type={output.type}
           content={output.children}
+          command={output.command}
         />
       ))}
       <div
         style={{
           backgroundColor: "#000",
-          color: "#0F0", // Different colors for input and output
+          color: "#0F0",
           border: "none",
           outline: "none",
           width: "100%",
           padding: "0.5rem",
           boxSizing: "border-box",
           fontFamily: "monospace",
-          whiteSpace: "nowrap", // Prevent line break
+          whiteSpace: "nowrap",
         }}
       >
-        light.terminalio.com: <span style={{ color: "blue" }}>{"$"}</span>
+        light.terminalio.com: <span style={{ color: "lightblue" }}>{"$"}</span>
         <input
           type="text"
           placeholder="Enter your command..."
@@ -122,7 +130,7 @@ const Terminal: React.FC = () => {
           onKeyUp={handleEnter}
           style={{
             backgroundColor: "#000",
-            color: "blue",
+            color: "lightblue",
             border: "none",
             outline: "none",
             width: "100%",

@@ -1,11 +1,16 @@
 import React, { ReactNode } from "react";
 
 interface CommandOutputProps {
+  command: string;
   type: "input" | "output";
   content: ReactNode;
 }
 
-const CommandOutput: React.FC<CommandOutputProps> = ({ type, content }) => {
+const CommandOutput: React.FC<CommandOutputProps> = ({
+  command,
+  type,
+  content,
+}) => {
   const isInput = type === "input";
 
   return (
@@ -23,6 +28,9 @@ const CommandOutput: React.FC<CommandOutputProps> = ({ type, content }) => {
       }}
     >
       light.terminalio.com:{" "}
+      {command !== "null" && (
+        <span style={{ color: "lightblue" }}>${command}</span>
+      )}{" "}
       <span
         className={isInput ? "input" : "output"}
         style={{ marginLeft: "5px" }}

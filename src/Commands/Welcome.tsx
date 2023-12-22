@@ -14,10 +14,14 @@ const WelcomeCommand = () => {
  ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌ ▄▄▄▄█░█▄▄▄▄      ▐░▌          ▐░▌ ▐░▌ ▐░▌       ▐░▌ ▄▄▄▄█░█▄▄▄▄ ▐░▌     ▐░▐░▌▐░█▄▄▄▄▄▄▄▄▄ 
  ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░▌  ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░░░░░░░░░░░▌
   ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀            ▀    ▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀▀                                                                                                               
-          `}
+         `}
       </pre>
       <div>
-        <p>Welcome, Chit! This is your custom ASCII art.</p>
+        <p>
+          Hey, I am Chit Khine. I am a fullstack developer with React as a
+          frontend and Node as a backend
+        </p>
+        <p>Loves: Typescript</p>
       </div>
     </div>
   );
