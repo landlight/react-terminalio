@@ -8,6 +8,11 @@ interface Command {
 const Help: React.FC = () => {
   const commands: Command[] = [
     { command: "about", description: "About me" },
+    { command: "skills", description: "My skills" },
+    { command: "projects", description: "My projects" },
+    { command: "contact", description: "Contact me" },
+    { command: "clear", description: "Clear the terminal" },
+    { command: "help", description: "Show this help message" },
     // Add more commands as needed
   ];
 
@@ -15,8 +20,10 @@ const Help: React.FC = () => {
     <div>
       {commands.map((command) => (
         <div key={command.command}>
-          <p>{command.command}</p>
-          <p>{command.description}</p>
+          <p>
+            <span style={{ color: "#0F0" }}>{command.command}</span> -{" "}
+            <span style={{ color: "#FFF" }}>{command.description}</span>
+          </p>
         </div>
       ))}
     </div>
