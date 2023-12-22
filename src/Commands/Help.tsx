@@ -7,8 +7,8 @@ interface Command {
 
 const Help: React.FC = () => {
   const commands: Command[] = [
+    { command: "welcome", description: "Welcome message" },
     { command: "about", description: "About this project and a bit about me" },
-    { command: "skills", description: "My skills" },
     { command: "contact", description: "Contact me through the email" },
     { command: "clear", description: "Clear the terminal" },
     { command: "help", description: "Show all commands" },

@@ -62,17 +62,8 @@ const Terminal: React.FC = () => {
       case "about":
         addOutput(command, <AboutCommand />);
         break;
-      case "skills":
-        addOutput(
-          command,
-          "Skills: HTML, CSS, JavaScript, React, Node.js, etc."
-        );
-        break;
       case "contact":
         addOutput(command, "Contact me at: your.email@example.com");
-        break;
-      case "deejung":
-        addOutput(command, "useless");
         break;
       case "clear":
         clearOutput();
