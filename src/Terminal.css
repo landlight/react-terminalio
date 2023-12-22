@@ -1,0 +1,19 @@
+#terminal {
+  border: 2px solid #555;
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
+  background-color: black;
+  color: white;
+  line-height: 1.5;
+}
+
+.input {
+  color: #00ff00;
+}
+
+.output {
+  color: greenyellow;
+}
