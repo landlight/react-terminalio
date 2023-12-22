@@ -12,7 +12,7 @@ const Help: React.FC = () => {
     { command: "contact", description: "Contact me through the email" },
     { command: "clear", description: "Clear the terminal" },
     { command: "help", description: "Show all commands" },
-    { command: "command", description: "Show all commands" },
+    { command: "commands", description: "Show all commands" },
   ];
 
   return (

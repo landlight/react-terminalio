@@ -63,7 +63,7 @@ const Terminal: React.FC = () => {
         addOutput(command, <AboutCommand />);
         break;
       case "contact":
-        addOutput(command, "Contact me at: your.email@example.com");
+        addOutput(command, "Contact me at: ck.light@gmail.com");
         break;
       case "clear":
         clearOutput();

@@ -29,7 +29,7 @@ const CommandOutput: React.FC<CommandOutputProps> = ({
     >
       light.terminalio.com:{" "}
       {command !== "null" && (
-        <span style={{ color: "lightblue" }}>${command}:</span>
+        <span style={{ color: "lightblue" }}>${command}</span>
       )}{" "}
       <span
         className={isInput ? "input" : "output"}
