@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import CommandOutput from "./CommandOutput";
-import "./Terminal.css";
-import WelcomeCommand from "./Commands/Welcome";
-import Help from "./Commands/Help";
-import AboutCommand from "./Commands/About";
+import CommandOutput from "../CommandOutput";
+import "./style.css";
+import WelcomeCommand from "../Commands/Welcome";
+import Help from "../Commands/Help";
+import AboutCommand from "../Commands/About";
 
 interface Output {
   command: string;
