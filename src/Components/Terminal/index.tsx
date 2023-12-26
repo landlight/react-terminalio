@@ -94,7 +94,7 @@ const Terminal: React.FC = () => {
   return (
     <div
       id="terminal"
-      style={{ textAlign: "left", width: "100%", height: "100vh" }}
+      style={{ textAlign: "left", height: "100vh" }}
       ref={outputContainerRef}
     >
       {outputs.map((output, index) => (
