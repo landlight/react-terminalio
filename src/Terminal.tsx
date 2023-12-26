@@ -51,6 +51,11 @@ const Terminal: React.FC = () => {
   }, [outputs]);
 
   const handleCommand = (command: string) => {
+    if (command.split(" ")[0] === "echo") {
+      addOutput(command.split(" ")[0], command.slice(5));
+      return;
+    }
+
     switch (command.toLowerCase()) {
       case "welcome":
         addOutput(command, <WelcomeCommand />);
