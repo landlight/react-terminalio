@@ -31,8 +31,16 @@ const WelcomeCommand = () => {
             frontend and Node as a backend
           </p>
           <p>Loves: Typescript</p>
-          <p>Link to Repo: https://github.com/landlight/react-terminalio</p>
-
+          <p>
+            Link to Repo:{" "}
+            <a
+              href="https://github.com/landlight/react-terminalio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repo
+            </a>
+          </p>
           <p>
             I also love Konosuba: which is why you are seeing Kazuma's
             silhouette
