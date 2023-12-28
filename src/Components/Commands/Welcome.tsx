@@ -32,13 +32,16 @@ const WelcomeCommand = () => {
           </p>
           <p>Loves: Typescript</p>
           <p>
-            Link to Repo:{" "}
+            Link to{" "}
             <a
               href="https://github.com/landlight/react-terminalio"
               target="_blank"
               rel="noopener noreferrer"
+              style={{
+                textDecoration: "none",
+              }}
             >
-              GitHub Repo
+              Repo
             </a>
           </p>
           <p>

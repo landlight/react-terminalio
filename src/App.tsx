@@ -3,7 +3,7 @@ import Terminal from "./Components/Terminal";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App" data-testid="app-component">
       <Terminal />
     </div>
   );

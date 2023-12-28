@@ -94,6 +94,7 @@ const Terminal: React.FC = () => {
   return (
     <div
       id="terminal"
+      data-testid="terminal-component"
       style={{ textAlign: "left", height: "100vh" }}
       ref={outputContainerRef}
     >
