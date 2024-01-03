@@ -17,9 +17,9 @@ const Help: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div data-testid="allCommands">
       {commands.map((command) => (
-        <div key={command.command}>
+        <div key={command.command} data-testid={command.command}>
           <p>
             <span style={{ color: "#393" }}>{command.command} - </span>
             <span style={{ color: "#FFF" }}>{command.description}</span>
