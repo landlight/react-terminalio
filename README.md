@@ -7,10 +7,7 @@ Welcome to the React Terminalio Portfolio! This project is inspired by the idea 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
+- [Author](#author)
 
 ## Introduction
 
@@ -22,7 +19,7 @@ This project is a React-based portfolio template that mimics the look and feel o
 - Customizable commands and content
 - Easily extendable for adding new sections or features
 
-## Running Locally
+## Installation
 
 Clone the project
 
@@ -53,3 +50,7 @@ Start the server
 ```bash
 npm run start
 ```
+
+## Author
+
+[Chit Khine](https://github.com/landlight)
